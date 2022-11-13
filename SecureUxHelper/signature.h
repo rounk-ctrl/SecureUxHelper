@@ -18,6 +18,6 @@
 
 namespace sig
 {
-  HRESULT check_file(LPCWSTR path);
-  HRESULT fix_file(LPCWSTR path);
+	HRESULT check_file(LPCWSTR path);
+	HRESULT fix_file(LPCWSTR path);
 }

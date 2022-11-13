@@ -1,13 +1,15 @@
 #include "helper.h"
-#include "stdafx.h"
 
 #define FLG_APPLICATION_VERIFIER (0x100)
 static const wchar_t kPatcherDllName[] = L"SecureUxTheme.dll";
 static const wchar_t kIFEO[] = L"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\";
+static constexpr wchar_t kCurrentColorsPath[] = L"\\Registry\\Machine\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\";
+static constexpr wchar_t kCurrentColorsName[] = L"DefaultColors";
+static constexpr wchar_t kCurrentColorsBackup[] = L"DefaultColors_backup";
 
 DWORD InstallForExecutable(const wchar_t* executable)
 {
-	const auto subkey = std::wstring( kIFEO ) +executable;
+	const auto subkey = std::wstring(kIFEO) + executable;
 	DWORD GlobalFlag = 0;
 	DWORD GlobalFlag_size = sizeof(GlobalFlag);
 	// we don't care if it fails
@@ -19,7 +21,7 @@ DWORD InstallForExecutable(const wchar_t* executable)
 		nullptr,
 		&GlobalFlag,
 		&GlobalFlag_size
-		);
+	);
 	GlobalFlag |= FLG_APPLICATION_VERIFIER;
 	auto ret = RegSetKeyValueW(
 		HKEY_LOCAL_MACHINE,
@@ -28,8 +30,8 @@ DWORD InstallForExecutable(const wchar_t* executable)
 		REG_DWORD,
 		&GlobalFlag,
 		sizeof(GlobalFlag)
-		);
-	if(!ret)
+	);
+	if (!ret)
 	{
 		ret = RegSetKeyValueW(
 			HKEY_LOCAL_MACHINE,
@@ -38,13 +40,13 @@ DWORD InstallForExecutable(const wchar_t* executable)
 			REG_SZ,
 			kPatcherDllName,
 			sizeof(kPatcherDllName)
-			);
+		);
 	}
 	return ret;
 }
-wchar_t *convertCharArrayToLPCWSTR(const char* charArray)
+wchar_t* convertCharArrayToLPCWSTR(const char* charArray)
 {
-	wchar_t* wString=new wchar_t[4096];
+	wchar_t* wString = new wchar_t[4096];
 	MultiByteToWideChar(CP_ACP, 0, charArray, -1, wString, 4096);
 	return wString;
 }
@@ -79,4 +81,15 @@ BOOL ThemePatch(LPCWSTR ok)
 		std::wcout << "\n";
 	}
 	return val;
+}
+DWORD RenameDefaultColors()
+{
+	const auto old_name = std::wstring{ ESTRt(kCurrentColorsPath) } + ESTRt(kCurrentColorsName);
+	return utl::rename_key(old_name.c_str(), ESTRt(kCurrentColorsBackup));
+}
+
+DWORD RestoreDefaultColors()
+{
+	const auto old_name = std::wstring{ ESTRt(kCurrentColorsPath) } + ESTRt(kCurrentColorsBackup);
+	return utl::rename_key(old_name.c_str(), ESTRt(kCurrentColorsName));
 }

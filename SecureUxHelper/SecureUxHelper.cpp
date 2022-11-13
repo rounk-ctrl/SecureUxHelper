@@ -3,12 +3,13 @@
 //
 
 #include "stdafx.h"
+#include "helper.h"
 
 int _tmain(int argc, TCHAR* argv[])
 {
-	for(int i = 1; i < argc; i++)
+	for (int i = 1; i < argc; i++)
 	{
-		if(!wcscmp(argv[i], L"info"))
+		if (!wcscmp(argv[i], L"info"))
 		{
 			LPCWSTR ok = argv[2];
 			ThemeInfo(ok);
@@ -18,6 +19,16 @@ int _tmain(int argc, TCHAR* argv[])
 			LPCWSTR ok = argv[2];
 			ThemePatch(ok);
 		}
+		else if (!wcscmp(argv[i], L"colors"))
+		{
+			if (!wcscmp(argv[2], L"true"))
+			{
+				RenameDefaultColors();
+			}
+			else if (!wcscmp(argv[2], L"false"))
+			{
+				RestoreDefaultColors();
+			}
+		}
 	}
-}
-
+};

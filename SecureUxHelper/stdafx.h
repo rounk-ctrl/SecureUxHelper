@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <tchar.h>
+#include <windows.h>
 
 #include <tuple>
 #include <list>
@@ -18,9 +19,10 @@
 #include <string>
 #include <vector>
 #include <random>
+#include <winternl.h>
 #include <iostream>
 // TODO: reference additional headers your program requires here
 
-#include <windows.h>
 #include "signature.h"
-#include "helper.h"
+#include "stringencrypt.h"
+#include "utl.h"
