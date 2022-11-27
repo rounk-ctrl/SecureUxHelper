@@ -16,8 +16,10 @@
 #include <tuple>
 #include <list>
 #include <memory>
+#include <atlbase.h>
 #include <string>
 #include <vector>
+#include <iterator> 
 #include <random>
 #include <winternl.h>
 #include <iostream>
@@ -26,3 +28,4 @@
 #include "signature.h"
 #include "stringencrypt.h"
 #include "utl.h"
+#include "interface.h"

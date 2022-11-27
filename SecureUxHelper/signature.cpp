@@ -23,8 +23,8 @@ typedef struct _THEME_SIGNATURE_HEADER
     ULONGLONG FileSize;
 } THEME_SIGNATURE_HEADER;
 
-const static auto k_signature_magic = (ULONG)0x84692426;
-const static auto k_signature_size = 128u;
+constexpr static auto k_signature_magic = (ULONG)0x84692426;
+constexpr static auto k_signature_size = 128u;
 
 static HRESULT ResultFromKnownLastError()
 {
@@ -93,7 +93,7 @@ static HRESULT WriteSignature(
     signature_header.SignatureOffset = k_signature_size;
     signature_header.FileSize = file_size.QuadPart + sizeof(THEME_SIGNATURE_HEADER);
 
-    DWORD bytes_written;
+    DWORD bytes_written{};
     const auto succeeded = WriteFile(
         file,
         &signature_header,
@@ -130,6 +130,7 @@ static HANDLE open_file(PCTSTR file_name, bool write)
 
     return file;
 }
+
 
 HRESULT sig::check_file(LPCWSTR path)
 {
