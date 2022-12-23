@@ -32,3 +32,9 @@
 *.app
 /SecureUxHelper/.vs/SecureUxHelper
 /SecureUxHelper/x64/Release
+/SecureUxHelper/bin/Debug/Win32
+/SecureUxHelper/Debug/SecureUxHelper.tlog
+/SecureUxHelper/Debug
+/ThemeLib/Debug
+/ThemeLib/Release
+/ThemeLib/x64/Release
