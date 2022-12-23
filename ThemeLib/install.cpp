@@ -578,13 +578,7 @@ static HRESULT RenameDefaultColors()
 
     // delete backup if any exists for good measure
     RegDeleteKeyW(HKEY_LOCAL_MACHINE, (std::wstring{ kCurrentColorsPath } + kCurrentColorsBackup).c_str());
-    
-    const auto result = rename_key(
-      (std::wstring{ kHKLMPrefix } + kCurrentColorsPath + kCurrentColorsName).c_str(),
-      (std::wstring{ kHKLMPrefix } + kCurrentColorsPath + kCurrentColorsBackup).c_str()
-    );
-    if (result != ERROR_SUCCESS)
-      return HRESULT_FROM_WIN32(result);
+    RegRenameKey(HKEY_LOCAL_MACHINE, (std::wstring{ kCurrentColorsPath } + kCurrentColorsName).c_str(), kCurrentColorsBackup);
   }
   HKEY result;
   result = nullptr;
@@ -675,8 +669,6 @@ HRESULT secureuxtheme_install(ULONG install_flags)
 {
   unique_redirection_disabler _disabler{};
   const auto hr = InstallInternal(install_flags);
-  if (FAILED(hr))
-    secureuxtheme_uninstall();
   return hr;
 }
 

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.33027.164
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SecureUxHelper", "SecureUxHelper.vcxproj", "{48B84630-D2CE-410D-9813-54A5A4B7A665}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SecureUxHelper", "SecureUxHelper.vcxproj", "{5AF256FC-4DD1-47E6-949C-748E7AD4E3B4}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ThemeLib", "..\ThemeLib\ThemeLib.vcxproj", "{0253689B-A896-4BC8-B286-05424877ECEA}"
 EndProject
@@ -17,16 +17,16 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{48B84630-D2CE-410D-9813-54A5A4B7A665}.Debug|ARM64.ActiveCfg = Debug|Win32
-		{48B84630-D2CE-410D-9813-54A5A4B7A665}.Debug|x64.ActiveCfg = Debug|x64
-		{48B84630-D2CE-410D-9813-54A5A4B7A665}.Debug|x64.Build.0 = Debug|x64
-		{48B84630-D2CE-410D-9813-54A5A4B7A665}.Debug|x86.ActiveCfg = Debug|Win32
-		{48B84630-D2CE-410D-9813-54A5A4B7A665}.Debug|x86.Build.0 = Debug|Win32
-		{48B84630-D2CE-410D-9813-54A5A4B7A665}.Release|ARM64.ActiveCfg = Release|Win32
-		{48B84630-D2CE-410D-9813-54A5A4B7A665}.Release|x64.ActiveCfg = Release|x64
-		{48B84630-D2CE-410D-9813-54A5A4B7A665}.Release|x64.Build.0 = Release|x64
-		{48B84630-D2CE-410D-9813-54A5A4B7A665}.Release|x86.ActiveCfg = Release|Win32
-		{48B84630-D2CE-410D-9813-54A5A4B7A665}.Release|x86.Build.0 = Release|Win32
+		{5AF256FC-4DD1-47E6-949C-748E7AD4E3B4}.Debug|ARM64.ActiveCfg = Debug|Win32
+		{5AF256FC-4DD1-47E6-949C-748E7AD4E3B4}.Debug|x64.ActiveCfg = Debug|x64
+		{5AF256FC-4DD1-47E6-949C-748E7AD4E3B4}.Debug|x64.Build.0 = Debug|x64
+		{5AF256FC-4DD1-47E6-949C-748E7AD4E3B4}.Debug|x86.ActiveCfg = Debug|Win32
+		{5AF256FC-4DD1-47E6-949C-748E7AD4E3B4}.Debug|x86.Build.0 = Debug|Win32
+		{5AF256FC-4DD1-47E6-949C-748E7AD4E3B4}.Release|ARM64.ActiveCfg = Release|Win32
+		{5AF256FC-4DD1-47E6-949C-748E7AD4E3B4}.Release|x64.ActiveCfg = Release|x64
+		{5AF256FC-4DD1-47E6-949C-748E7AD4E3B4}.Release|x64.Build.0 = Release|x64
+		{5AF256FC-4DD1-47E6-949C-748E7AD4E3B4}.Release|x86.ActiveCfg = Release|Win32
+		{5AF256FC-4DD1-47E6-949C-748E7AD4E3B4}.Release|x86.Build.0 = Release|Win32
 		{0253689B-A896-4BC8-B286-05424877ECEA}.Debug|ARM64.ActiveCfg = Debug|ARM64
 		{0253689B-A896-4BC8-B286-05424877ECEA}.Debug|ARM64.Build.0 = Debug|ARM64
 		{0253689B-A896-4BC8-B286-05424877ECEA}.Debug|x64.ActiveCfg = Debug|x64
@@ -44,6 +44,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {E41BF4F6-329D-42D7-9066-FC1F3AA80A3D}
+		SolutionGuid = {63F39F19-970F-4F05-B692-EF5B4442120B}
 	EndGlobalSection
 EndGlobal
